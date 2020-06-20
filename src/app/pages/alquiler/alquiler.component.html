@@ -1,0 +1,80 @@
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Nuevo Alquiler</h5>
+    </div>
+    <div class="card-body">
+        <form #alquilerForm="ngForm">
+            <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Cliente:</label>
+                    <select class="form-control" name="cliente" [(ngModel)]="alquiler.cliente">
+                        <option *ngFor="let cli of clientes" [ngValue]="cli">{{cli.nombres}} {{cli.apellidos}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="">Fecha de Entrega:</label>
+                    <input type="date" class="form-control" id="fecha_entrega" name="fecha_entrega"
+                        [(ngModel)]="alquiler.fecha_entrega" required
+                        #fecha_entrega="ngModel">
+                    <div class="alert alert-danger" *ngIf="fecha_entrega.invalid && (fecha_entrega.dirty || fecha_entrega.touched)">
+                        <div *ngIf="fecha_entrega.errors.required">
+                            La Fecha de entrega es Requerida
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <mat-form-field>
+                        <input type="text" placeholder="Añadir Video juego" aria-label="Videojuegos" matInput
+                            [formControl]="autoCompleteControl" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="mostrarNombre"
+                            (optionSelected)="seleccionarVideojuego($event)">
+                            <mat-option *ngFor="let v of videojuegosFiltrados | async" [value]="v">
+                                {{v.titulo}}
+                            </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+                </div>
+
+            </div>
+            <div class="alert alert-info my-4" *ngIf="alquiler.items.length == 0">
+                No hay líneas asignadas para el Aquiler. Debe agregar al menos una!
+            </div>
+            <table class="table table-striped table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th>Video Juego</th>
+                        <th>Valor Unitario</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th>Eliminar</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of alquiler.items">
+                        <td>{{item.videojuego.titulo}}</td>
+                        <td>{{item.videojuego.valorUnitario}}</td>
+                        <td><input type="number" value="{{item.cantidad}}" class="form-control col-sm-4"
+                                (change)="actualizarCantidad(item.videojuego.id, $event)"></td>
+                        <td>{{item.calcularImporte()}}</td>
+                        <td><button class="btn btn-danger btn-sm" type="button"
+                                (click)="eliminarItemAlquiler(item.videojuego.id)">x</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h5 class="float-right" *ngIf="alquiler.items.length > 0">Gran Total: <span
+                    class="badge badge-secondary">{{alquiler.calcularGranTotal()}}</span></h5>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <input type="submit" (click)="create(alquilerForm)" value="Crear Alquiler" class="btn btn-secondary">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

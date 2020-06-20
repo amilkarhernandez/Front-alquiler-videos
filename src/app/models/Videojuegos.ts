@@ -9,4 +9,6 @@ export class Videojuegos{
     director: string;
     productor: string;
     tecnologia: Tecnologias;
+    valorUnitario: number;
+    stock: number;
 }

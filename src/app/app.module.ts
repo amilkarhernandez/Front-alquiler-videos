@@ -4,6 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -15,6 +19,9 @@ import { ClientesComponent } from './pages/clientes/clientes.component';
 import { FormComponent } from './pages/clientes/form/form.component';
 import { VideojuegosComponent } from './pages/videojuegos/videojuegos.component';
 import { FormvideojuegoComponent } from './pages/videojuegos/formvideojuego/formvideojuego.component';
+import { AlquilerComponent } from './pages/alquiler/alquiler.component';
+import { DetallealquilerComponent } from './pages/alquiler/detallealquiler.component';
+import { ConsultaComponent } from './pages/consulta/consulta.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
@@ -24,6 +31,9 @@ const routes: Routes = [
   {path: 'videojuegos', component: VideojuegosComponent},
   {path: 'formvideojuegos', component: FormvideojuegoComponent},
   {path: 'formvideojuegos/:id', component: FormvideojuegoComponent},
+  {path: 'alquiler', component: AlquilerComponent},
+  {path: 'alquiler/:id', component: DetallealquilerComponent},
+  {path: 'consulta/usuario', component: ConsultaComponent},
 ];
 
 @NgModule({
@@ -35,14 +45,19 @@ const routes: Routes = [
     ClientesComponent,
     FormComponent,
     VideojuegosComponent,
-    FormvideojuegoComponent
+    FormvideojuegoComponent,
+    AlquilerComponent,
+    DetallealquilerComponent,
+    ConsultaComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes),
-    BrowserAnimationsModule, ReactiveFormsModule, NgxPaginationModule
+    BrowserAnimationsModule, ReactiveFormsModule, NgxPaginationModule,
+    MatAutocompleteModule, 
+    MatInputModule, MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

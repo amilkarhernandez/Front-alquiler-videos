@@ -7,9 +7,22 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label for="exampleInputEmail1">Nit o Cédula:</label>
+                        <input type="number" class="form-control" id="nit" name="nit"
+                            placeholder="Ingrese un Nit" [(ngModel)]="clientes.nit" required
+                            #nit="ngModel">
+                        <div class="alert alert-danger" *ngIf="nit.invalid && (nit.dirty || nit.touched)">
+                            <div *ngIf="nit.errors.required">
+                                El Nit es Requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         <label for="exampleInputEmail1">Nombres:</label>
                         <input type="text" class="form-control" id="nombres" name="nombres"
-                            placeholder="Ingrese Sus Nombres" [(ngModel)]="clientes.nombres" required
+                            placeholder="Ingrese los Nombres" [(ngModel)]="clientes.nombres" required
                             #nombres="ngModel">
                         <div class="alert alert-danger" *ngIf="nombres.invalid && (nombres.dirty || nombres.touched)">
                             <div *ngIf="nombres.errors.required">
@@ -18,11 +31,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="exampleInputPassword1">Apellidos: </label>
                         <input type="text" class="form-control" id="apellidos" name="apellidos"
-                            placeholder="Ingrese Sus Apellidos" [(ngModel)]="clientes.apellidos" required
+                            placeholder="Ingrese los Apellidos" [(ngModel)]="clientes.apellidos" required
                             #apellidos="ngModel">
                         <div class="alert alert-danger"
                             *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)">
@@ -32,13 +47,11 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="exampleInputConfirmPassword1">Telefono:</label>
                         <input type="number" class="form-control" id="telefono" name="telefono"
-                            placeholder="Ingrese Su Telefono" [(ngModel)]="clientes.telefono" required
+                            placeholder="Ingrese un Telefono" [(ngModel)]="clientes.telefono" required
                             #telefono="ngModel">
                         <div class="alert alert-danger"
                             *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
@@ -48,19 +61,34 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="exampleInputConfirmPassword1">Genero:</label>
                         <select class="form-control" name="genero" [(ngModel)]="clientes.genero">
-                            <option value="" disabled>Seleccione</option>
+                            <option [ngValue]="undefined">--- Selecionar un Genero ---</option>
                             <option value="Masculino">Masculino</option>
                             <option value="Femenino">Femenino</option>
                             <option value="Otro">Otro</option>
                         </select>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Fecha de Nacimiento:</label>
+                        <input type="date" class="form-control" id="fecha_nac" name="fecha_nac"
+                            [(ngModel)]="clientes.fecha_nac" required
+                            #fecha_nac="ngModel">
+                        <div class="alert alert-danger"
+                            *ngIf="fecha_nac.invalid && (fecha_nac.dirty || fecha_nac.touched)">
+                            <div *ngIf="fecha_nac.errors.required">
+                                La Fecha de Nacimiento es Requerida
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
 
             <div class="form-group row">
                 <div class="col-sm-6">

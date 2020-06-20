@@ -37,7 +37,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="exampleInputConfirmPassword1">Año:</label>
-                        <input type="number" class="form-control" id="ano" name="ano"
+                        <input type="number" class="form-control" id="ano" name="ano" maxlength="4" minlength="4"
                             placeholder="Ingrese un Año" [(ngModel)]="videojuego.ano" required
                             #ano="ngModel">
                         <div class="alert alert-danger"
@@ -95,6 +95,34 @@
                 </div>
             </div>
             <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Valor Unitario:</label>
+                        <input type="number" class="form-control" id="valorunitario" name="valorunitario"
+                            placeholder="Ingrese El Valor Unitario" [(ngModel)]="videojuego.valorUnitario" required
+                            #valorunitario="ngModel">
+                        <div class="alert alert-danger"
+                            *ngIf="valorunitario.invalid && (valorunitario.dirty || valorunitario.touched)">
+                            <div *ngIf="valorunitario.errors.required">
+                                El valor Unitario es Requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Stock:</label>
+                        <input type="number" class="form-control" id="stock" name="stock"
+                            placeholder="Ingrese un Stock" [(ngModel)]="videojuego.stock" required
+                            #stock="ngModel">
+                        <div class="alert alert-danger"
+                            *ngIf="stock.invalid && (stock.dirty || stock.touched)">
+                            <div *ngIf="stock.errors.required">
+                                El Stock Unitario es Requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-6">
                      <div class="form-group">
                          <label for="">Tecnologia:</label>

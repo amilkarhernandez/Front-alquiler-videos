@@ -1,0 +1,76 @@
+<div class="card" *ngIf="alquiler">
+    <div class="card-header">
+        <h3 class="d-block w-100">Detalle de Alquiler<small class="float-right">Fecha: {{alquiler.fecha}}</small></h3>
+    </div>
+    <div class="card-body">
+        <div class="row invoice-info">
+            <div class="col-sm-4 invoice-col">
+                Empresa:
+                <address>
+                    <strong>Matrix Tech</strong><br>Carrera 9999,  <br>Centro Comercial,<br>Teléfono: +(57 4) 78009898 Ext.1000
+
+                    <br>Email: prueba@marixtech.com.co
+                </address>
+            </div>
+            <div class="col-sm-4 invoice-col">
+                Cliente
+                <address>
+                    <br>Nombres: {{alquiler.cliente.nombres}}<br>Apellidos: {{alquiler.cliente.apellidos}}<br>Telefono: {{alquiler.cliente.telefono}}<br>
+                </address>
+            </div>
+            <div class="col-sm-4 invoice-col">
+                <b>Alquiler #0{{alquiler.id}}</b><br>
+                <b>FECHA ENTREGA: {{alquiler.fecha_entrega}}</b>
+                <br>
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12 table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Nombre</th>
+                            <th>Cantidad</th>
+                            <th>Valor Unitario</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of alquiler.items">
+                            <td>{{item.videojuego.titulo}}</td>
+                            <td>{{item.videojuego.nombre}}</td>
+                            <td>{{item.cantidad}}</td>
+                            <td>{{item.videojuego.valorUnitario}}</td>
+                            <td>{{item.subtotal}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                
+            </div>
+            <div class="col-6">
+                <div class="table-responsive">
+                    <table class="table">
+                        <tr>
+                            <th style="width:50%">Subtotal:</th>
+                            <td>${{alquiler.total}}</td>
+                        </tr>
+                        <tr>
+                            <th>Total:</th>
+                            <td>${{alquiler.total}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-danger"><i
+            class="ik ik-arrow-left"></i> Salir</button>
+    </div>
+</div>
