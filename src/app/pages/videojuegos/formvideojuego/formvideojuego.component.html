@@ -1,0 +1,125 @@
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Formulario de Video Juegos</h5>
+    </div>
+    <div class="card-body">
+        <form #formVideo="ngForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Titulo:</label>
+                        <input type="text" class="form-control" id="titulo" name="titulo"
+                            placeholder="Ingrese un Titulo" [(ngModel)]="videojuego.titulo" required
+                            #titulo="ngModel">
+                        <div class="alert alert-danger" *ngIf="titulo.invalid && (titulo.dirty || titulo.touched)">
+                            <div *ngIf="titulo.errors.required">
+                                El Titulo es Requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Nombre: </label>
+                        <input type="text" class="form-control" id="nombre" name="nombre"
+                            placeholder="Ingrese un Nombre" [(ngModel)]="videojuego.nombre" required
+                            #nombre="ngModel">
+                        <div class="alert alert-danger"
+                            *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+                            <div *ngIf="nombre.errors.required">
+                                El Nombre es Requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Año:</label>
+                        <input type="number" class="form-control" id="ano" name="ano"
+                            placeholder="Ingrese un Año" [(ngModel)]="videojuego.ano" required
+                            #ano="ngModel">
+                        <div class="alert alert-danger"
+                            *ngIf="ano.invalid && (ano.dirty || ano.touched)">
+                            <div *ngIf="ano.errors.required">
+                                El Año es Requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Protagonistas:</label>
+                        <input type="text" class="form-control" id="protagonistas" name="protagonistas"
+                            placeholder="Ingrese los Protagonistas" [(ngModel)]="videojuego.protagonistas" required
+                            #protagonistas="ngModel">
+                        <div class="alert alert-danger"
+                            *ngIf="protagonistas.invalid && (protagonistas.dirty || protagonistas.touched)">
+                            <div *ngIf="protagonistas.errors.required">
+                                Los Protagonistas son Requeridos
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Director:</label>
+                        <input type="text" class="form-control" id="director" name="director"
+                            placeholder="Ingrese un Director" [(ngModel)]="videojuego.director" required
+                            #director="ngModel">
+                        <div class="alert alert-danger"
+                            *ngIf="director.invalid && (director.dirty || director.touched)">
+                            <div *ngIf="director.errors.required">
+                                El Director es Requerido
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="exampleInputConfirmPassword1">Productor:</label>
+                        <input type="text" class="form-control" id="productor" name="productor"
+                            placeholder="Ingrese un productor" [(ngModel)]="videojuego.productor" required
+                            #productor="ngModel">
+                        <div class="alert alert-danger"
+                            *ngIf="productor.invalid && (productor.dirty || productor.touched)">
+                            <div *ngIf="productor.errors.required">
+                                Los Productores son Requeridos
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                     <div class="form-group">
+                         <label for="">Tecnologia:</label>
+                         <select [compareWith]="compararTecnologia" class="form-control" name="tecnologia" [(ngModel)]="videojuego.tecnologia">
+                            <option [ngValue]="undefined">--- selecionar una Tecnologia ---</option>
+                            <option *ngFor="let tec of tecnologias" [ngValue]="tec">{{tec.descripcion}}</option>
+                         </select>
+                     </div>
+                 </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <button class="btn btn-sm btn-success" style="margin-right: 5px;" role="button" (click)='create()'
+                        *ngIf="!videojuego.id else elseBlock" [disabled]="!formVideo.form.valid"><i
+                            class="ik ik-check"></i>Crear</button>
+                    <ng-template #elseBlock>
+                        <button class="btn btn-sm btn-primary" style="margin-right: 5px;" role="button"
+                            (click)='update()' [disabled]="!formVideo.form.valid"> <i class="ik ik-edit-1"></i>
+                            Actualizar</button>
+                    </ng-template>
+                    <a type="button" class="btn btn-sm btn-danger" style="color: white;" routerLink="/videojuegos"><i
+                            class="ik ik-log-out"></i>Salir</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

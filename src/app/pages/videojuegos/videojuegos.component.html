@@ -1,0 +1,44 @@
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Gestión de Video Juegos</h5>
+    </div>
+    <div class="card-body">
+        <a type="button" class="btn btn-sm btn-success" style="color: white;" routerLink="/formvideojuegos"><i
+                class="ik ik-plus"></i> Nuevo</a>
+        <hr>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Titulo</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Año</th>
+                    <th scope="col">Protagonistas</th>
+                    <th scope="col">Director</th>
+                    <th scope="col">Productor</th>
+                    <th scope="col">Tecnologia</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let video of videojuegos">
+                    <td>{{ video.id }}</td>
+                    <td>{{ video.titulo }}</td>
+                    <td>{{ video.nombre }}</td>
+                    <td>{{ video.ano }}</td>
+                    <td>{{ video.protagonistas }}</td>
+                    <td>{{ video.director }}</td>
+                    <td>{{ video.productor }}</td>
+                    <td>{{ video.tecnologia.descripcion }}</td>
+                    <td>
+                        <button type="button" name="editar" style="margin-right: 5px;"
+                            [routerLink]="['/formvideojuegos', video.id]" class="btn btn-info"><i
+                                class="ik ik-edit-1"></i></button>
+                        <button type="button" name="eliminar" (click)='delete(video)' class="btn btn-danger"><i
+                                class="ik ik-trash"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
