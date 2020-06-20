@@ -11,6 +11,7 @@ import { Tecnologias } from 'src/app/models/Tecnologia';
 })
 export class VideojuegosComponent implements OnInit {
 
+  p: any;
   videojuegos: Videojuegos[];
 
   constructor(private videojuegoService: VideojuegosService) { }

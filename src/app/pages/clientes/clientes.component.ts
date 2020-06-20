@@ -10,6 +10,7 @@ import swal from 'sweetalert2';
 })
 export class ClientesComponent implements OnInit {
 
+  p: any;
   clientes: Clientes[];
 
   constructor(private clienteService: ClientesService) { }
