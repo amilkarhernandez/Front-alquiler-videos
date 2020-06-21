@@ -8,7 +8,6 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -24,6 +23,7 @@ import { DetallealquilerComponent } from './pages/alquiler/detallealquiler.compo
 import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { EntregaComponent } from './pages/entrega/entrega.component';
 import { DetailsComponent } from './pages/entrega/details/details.component';
+import { ReporteventaComponent } from './pages/reporteventa/reporteventa.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
@@ -38,6 +38,7 @@ const routes: Routes = [
   {path: 'consulta/usuario', component: ConsultaComponent},
   {path: 'entrega', component: EntregaComponent},
   {path: 'entrega/:id', component: DetailsComponent},
+  {path: 'reporte/ventadia', component: ReporteventaComponent},
 ];
 
 @NgModule({
@@ -54,7 +55,8 @@ const routes: Routes = [
     DetallealquilerComponent,
     ConsultaComponent,
     EntregaComponent,
-    DetailsComponent
+    DetailsComponent,
+    ReporteventaComponent
   ],
   imports: [
     BrowserModule,

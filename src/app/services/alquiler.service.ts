@@ -56,4 +56,8 @@ export class AlquilerService {
     return this.http.get<Alquiler>(`${this.url+"/alquiler/devolver"}/${id}`);
   }
 
+  ventaDia(fecha: string): Observable<Alquiler[]>{
+    return this.http.get<Alquiler[]>(`${this.url+"/alquiler/ventadia"}/${fecha}`);
+  }
+
 }
