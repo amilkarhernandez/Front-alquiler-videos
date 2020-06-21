@@ -33,7 +33,7 @@ export class AlquilerService {
   }
 
   create(alquiler: Alquiler): Observable<Alquiler> {
-    return this.http.post<Alquiler> (this.url+"/facturas", alquiler, {headers: this.httpHeaders}).pipe(
+    return this.http.post<Alquiler> (this.url+"/alquiler", alquiler, {headers: this.httpHeaders}).pipe(
       catchError(e => {
         if(e.satus == 400){
           return throwError(e);
