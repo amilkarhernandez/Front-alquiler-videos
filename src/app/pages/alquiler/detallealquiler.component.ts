@@ -26,5 +26,6 @@ export class DetallealquilerComponent implements OnInit {
       }
     )
   }
+  
 
 }

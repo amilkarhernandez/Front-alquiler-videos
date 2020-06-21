@@ -44,5 +44,8 @@ export class AlquilerService {
     );
   }
   
+  getFindNit(term: String): Observable<Alquiler[]>{
+    return this.http.get<Alquiler[]>(`${this.url + "/alquiler"}/consulta/${term}`);
+  }
 
 }
