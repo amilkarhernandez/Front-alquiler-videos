@@ -48,4 +48,12 @@ export class AlquilerService {
     return this.http.get<Alquiler[]>(`${this.url + "/alquiler"}/consulta/${term}`);
   }
 
+  getListAlquileres(): Observable<Alquiler[]>{
+    return this.http.get<Alquiler[]>(this.url + "/alquiler/list");
+  }
+
+  entregarAlquiler(id: number):Observable<Alquiler>{
+    return this.http.get<Alquiler>(`${this.url+"/alquiler/devolver"}/${id}`);
+  }
+
 }

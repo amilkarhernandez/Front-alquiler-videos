@@ -22,6 +22,8 @@ import { FormvideojuegoComponent } from './pages/videojuegos/formvideojuego/form
 import { AlquilerComponent } from './pages/alquiler/alquiler.component';
 import { DetallealquilerComponent } from './pages/alquiler/detallealquiler.component';
 import { ConsultaComponent } from './pages/consulta/consulta.component';
+import { EntregaComponent } from './pages/entrega/entrega.component';
+import { DetailsComponent } from './pages/entrega/details/details.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/', pathMatch: 'full'},
@@ -34,6 +36,8 @@ const routes: Routes = [
   {path: 'alquiler', component: AlquilerComponent},
   {path: 'alquiler/:id', component: DetallealquilerComponent},
   {path: 'consulta/usuario', component: ConsultaComponent},
+  {path: 'entrega', component: EntregaComponent},
+  {path: 'entrega/:id', component: DetailsComponent},
 ];
 
 @NgModule({
@@ -48,7 +52,9 @@ const routes: Routes = [
     FormvideojuegoComponent,
     AlquilerComponent,
     DetallealquilerComponent,
-    ConsultaComponent
+    ConsultaComponent,
+    EntregaComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

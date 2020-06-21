@@ -1,19 +1,8 @@
 <div class="card">
     <div class="card-header">
-        <h5 class="card-title">Consulta de Alquiler</h5>
+        <h5 class="card-title">Listado de Alquileres</h5>
     </div>
     <div class="card-body">
-        <form #formSearch="ngForm">
-            <div class="col-sm-12">
-                <div class="input-group input-group-primary">
-                    <span class="input-group-prepend"><label class="input-group-text"><i
-                                class="ik ik-search"></i></label></span>
-                    <input type="number" class="form-control" placeholder="Ingrese su Identificación" name="textSearch" [(ngModel)]='textSearch'>
-                    <input type="submit" class="btn btn-primary" value="Buscar" (click)="consultarAlquiler()"
-                        style="margin-left: 10px;">
-                </div>
-            </div>
-        </form>
         <br>
         <div class="row">
             <div class="col-12 table-responsive">
@@ -33,7 +22,7 @@
                             <td>{{item.fecha_entrega}}</td>
                             <td>{{item.cliente.nombres}} {{item.cliente.apellidos}}</td>
                             <td>{{item.estado}}</td>
-                            <button type="button" (click)="mostrarDetalle(item.id)" class="btn btn-warning"><i
+                            <button type="button" (click)="verDetalle(item.id)" class="btn btn-warning"><i
                                 class="ik ik-file-text"></i></button>
                         </tr>
                     </tbody>

@@ -1,6 +1,6 @@
 <div class="card" *ngIf="alquiler">
     <div class="card-header">
-        <h3 class="d-block w-100">Detalle de Alquiler<small class="float-right">Fecha: {{alquiler.fecha}}</small></h3>
+        <h3 class="d-block w-100">Detalle de Alquileres Activos<small class="float-right">Fecha: {{alquiler.fecha}}</small></h3>
     </div>
     <div class="card-body">
         <div class="row invoice-info">
@@ -70,6 +70,7 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-danger" routerLink="/consulta/usuario" ><i class="ik ik-arrow-left"></i> Salir</button>
+        <button class="btn btn-danger" routerLink="/entrega" ><i class="ik ik-arrow-left"></i> Volver</button>
+        <button class="btn btn-info" (click)="entregar(alquiler.id)" ><i class="ik ik-arrow-left"></i> Entregar</button>
     </div>
 </div>
