@@ -24,9 +24,12 @@ import { ConsultaComponent } from './pages/consulta/consulta.component';
 import { EntregaComponent } from './pages/entrega/entrega.component';
 import { DetailsComponent } from './pages/entrega/details/details.component';
 import { ReporteventaComponent } from './pages/reporteventa/reporteventa.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { BusquedaComponent } from './pages/busqueda/busqueda.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/', pathMatch: 'full'},
+  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: 'dashboard', component: DashboardComponent},
   {path: 'clientes', component: ClientesComponent},
   {path: 'formcliente', component: FormComponent},
   {path: 'formcliente/:id', component: FormComponent},
@@ -39,6 +42,7 @@ const routes: Routes = [
   {path: 'entrega', component: EntregaComponent},
   {path: 'entrega/:id', component: DetailsComponent},
   {path: 'reporte/ventadia', component: ReporteventaComponent},
+  {path: 'reporte/busqueda', component: BusquedaComponent},
 ];
 
 @NgModule({
@@ -56,7 +60,9 @@ const routes: Routes = [
     ConsultaComponent,
     EntregaComponent,
     DetailsComponent,
-    ReporteventaComponent
+    ReporteventaComponent,
+    DashboardComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule,

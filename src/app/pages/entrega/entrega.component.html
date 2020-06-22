@@ -3,6 +3,12 @@
         <h5 class="card-title">Listado de Alquileres</h5>
     </div>
     <div class="card-body">
+        <div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="alquiler.length == 0">
+            <strong>Hola!</strong> No Tienes Alquileres Activos!
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <i class="ik ik-x"></i>
+            </button>
+        </div>
         <br>
         <div class="row">
             <div class="col-12 table-responsive">

@@ -71,4 +71,14 @@ export class VideojuegosService {
     return this.http.get<Tecnologias[]>(this.url + "/tecnologias");
   }
 
+  getBusquedaCustomizada(director: String, protag: String, productor: String): Observable<Videojuegos[]>{
+    return this.http.get<Videojuegos[]>(this.url + "/videojuegos/busqueda?director="+director+"&protag="+protag+"&productor="+productor).pipe(
+      catchError(e => {
+        this.router.navigate(['/videojuegos']);
+        swal('Error', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
 }
