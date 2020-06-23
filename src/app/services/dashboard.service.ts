@@ -31,4 +31,9 @@ export class DashboardService {
     return this.http.get<[]>(this.url + '/clientes/top', {headers: this.httpHeaders});
   }
 
+  getRangos():Observable<any[]>{
+    return this.http.get<[]>(this.url + '/videojuegos/rangos', {headers: this.httpHeaders});
+  }
+
+
 }

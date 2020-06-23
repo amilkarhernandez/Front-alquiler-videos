@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from 'src/app/services/dashboard.service';
 import { Clientes } from 'src/app/models/Clientes';
+import { Rangos } from 'src/app/models/Rangos';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +14,8 @@ export class DashboardComponent implements OnInit {
   totalVideojuegos:any;
   totalAlquiler:any;
   clientesfrec: Clientes[];
+  rangos: Rangos[];
+  private r: Rangos = new Rangos();
   constructor(private dashboardServide: DashboardService) { }
 
   ngOnInit(): void {
@@ -29,6 +32,14 @@ export class DashboardComponent implements OnInit {
     );
     this.dashboardServide.getClienteFrecuente().subscribe(
       cli => this.clientesfrec = cli
+    );
+
+    this.dashboardServide.getRangos().subscribe(
+      res =>{
+        this.rangos = res;
+        var obj = JSON.parse(JSON.stringify(res));
+        console.log(obj);
+      }
     );
   }
 

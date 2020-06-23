@@ -70,4 +70,42 @@
             </div>
         </div>
     </div>
+        <div class="col-xl-8 col-md-6">
+            <div class="card new-cust-card">
+                <div class="card-header">
+                    <h3>Video Juegos Alquilados Por rangos de Edad</h3>
+                    <div class="card-header-right">
+                        <ul class="list-unstyled card-option">
+                            <li><i class="ik ik-chevron-left action-toggle"></i></li>
+                            <li><i class="ik ik-minus minimize-card"></i></li>
+                            <li><i class="ik ik-x close-card"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>10-20</th>
+                        <th>21-30</th>
+                        <th>31-40</th>
+                        <th>41-50</th>
+                        <th>51-60</th>
+                        <th>61-70</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let abc of rangos, let i = index">
+                        <td>{{abc[0]}}</td>
+                        <td>{{abc[1]}}</td>
+                        <td>{{abc[2]}}</td>
+                        <td>{{abc[3]}}</td>
+                        <td>{{abc[4]}}</td>
+                        <td>{{abc[5]}}</td>
+                        <td>{{abc[6]}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
 </div>

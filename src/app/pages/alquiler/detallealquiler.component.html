@@ -43,8 +43,8 @@
                             <td>{{item.videojuego.titulo}}</td>
                             <td>{{item.videojuego.nombre}}</td>
                             <td>{{item.cantidad}}</td>
-                            <td>{{item.videojuego.valorUnitario}}</td>
-                            <td>{{item.subtotal}}</td>
+                            <td>{{item.videojuego.valorUnitario | currency: 'USD' | lowercase}}</td>
+                            <td>{{item.subtotal | currency: 'USD' | lowercase}}</td>
                         </tr>
                     </tbody>
                 </table>
@@ -60,11 +60,11 @@
                     <table class="table">
                         <tr>
                             <th style="width:50%">Subtotal:</th>
-                            <td>${{alquiler.total}}</td>
+                            <td>{{alquiler.total | currency: 'USD' | lowercase}}</td>
                         </tr>
                         <tr>
                             <th>Total:</th>
-                            <td>${{alquiler.total}}</td>
+                            <td>{{alquiler.total | currency: 'USD' | lowercase}}</td>
                         </tr>
                     </table>
                 </div>

@@ -67,7 +67,7 @@
                         <td>{{ video.productor }}</td>
                         <td>{{ video.tecnologia.descripcion }}</td>
                         <td>{{ video.stock }}</td>
-                        <td>{{ video.valorUnitario }}</td>
+                        <td>{{ video.valorUnitario | currency: 'USD' | lowercase}}</td>
                     </tr>
                 </tbody>
             </table>

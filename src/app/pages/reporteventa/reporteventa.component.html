@@ -33,7 +33,7 @@
                             <td>{{item.fecha_entrega}}</td>
                             <td>{{item.cliente.nombres}} {{item.cliente.apellidos}}</td>
                             <td>{{item.estado}}</td>
-                            <td>{{item.total}}</td>
+                            <td>{{item.total | currency: 'USD' | lowercase}}</td>
                         </tr>
                     </tbody>
                 </table>
