@@ -60,4 +60,8 @@ export class AlquilerService {
     return this.http.get<Alquiler[]>(`${this.url+"/alquiler/ventadia"}/${fecha}`);
   }
 
+  descargarAlquilerExcel():Observable<Blob>{
+    return this.http.get(this.url+"/alquiler/export", { responseType: 'blob'});
+  }
+
 }

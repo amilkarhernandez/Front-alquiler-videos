@@ -25,7 +25,27 @@ export class ReporteventaComponent implements OnInit {
         this.alquiler = alquiler;
        }
     )
-    
+  }
+
+  descargar(){
+    this.alquilerService.descargarAlquilerExcel().subscribe(
+      x =>{
+        const blob = new Blob([x], {type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+        if(window.navigator && window.navigator.msSaveOrOpenBlob){
+          window.navigator.msSaveOrOpenBlob(blob);
+          return;
+        }
+        const dataa = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = dataa;
+        link.download = "alquileresdia.xlsx";
+        link.dispatchEvent(new MouseEvent('click'));
+
+        setTimeout(function(){
+          window.URL.revokeObjectURL(dataa);
+          link.remove();
+        }, 100);
+      });
   }
 
 }

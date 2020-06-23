@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class EntregaComponent implements OnInit {
 
+  p: any;
   alquiler: Alquiler[];
   constructor(private alquilerService: AlquilerService, private router:Router) { }
 

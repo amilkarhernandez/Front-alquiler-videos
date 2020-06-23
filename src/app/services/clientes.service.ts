@@ -65,5 +65,9 @@ export class ClientesService {
       })
     );
   }
+
+  descargarExcel():Observable<Blob>{
+    return this.http.get(this.url+"/clientes/export", { responseType: 'blob'});
+  }
   
 }

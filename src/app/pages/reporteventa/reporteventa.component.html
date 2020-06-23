@@ -3,11 +3,17 @@
         <h5 class="card-title">Reporte Ventas Diarias</h5>
     </div>
     <div class="card-body">
+        <div class="div">
+            <a *ngIf="alquiler.length != 0" type="button" class="btn btn-sm btn-danger" style="color: white; margin-left: 5px;" (click)="descargar()"><i
+                class="ik ik-download"></i> Descargar</a>
+        </div>
+        <br>
         <div class="alert alert-info alert-dismissible fade show" role="alert" *ngIf="alquiler.length == 0">
             <strong>Hola!</strong> No Tienes Alquileres registrados para el dia de hoy !
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <i class="ik ik-x"></i>
             </button>
+            
         </div>
         <div class="row">
             <div class="col-12 table-responsive">
