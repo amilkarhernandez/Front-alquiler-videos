@@ -21,7 +21,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let video of videojuegos | paginate: { itemsPerPage: 10, currentPage: p }">
+                <tr *ngFor="let video of videojuegos | paginate: { itemsPerPage: 5, currentPage: p }">
                     <td>{{ video.id }}</td>
                     <td>{{ video.titulo }}</td>
                     <td>{{ video.nombre }}</td>
@@ -32,9 +32,9 @@
                     <td>{{ video.tecnologia.descripcion }}</td>
                     <td>
                         <button type="button" name="editar" style="margin-right: 5px;"
-                            [routerLink]="['/formvideojuegos', video.id]" class="btn btn-info"><i
+                            [routerLink]="['/formvideojuegos', video.id]" class="btn btn-sm btn-info"><i
                                 class="ik ik-edit-1"></i></button>
-                        <button type="button" name="eliminar" (click)='delete(video)' class="btn btn-danger"><i
+                        <button type="button" name="eliminar" (click)='delete(video)' class="btn btn-sm btn-danger"><i
                                 class="ik ik-trash"></i></button>
                     </td>
                 </tr>
